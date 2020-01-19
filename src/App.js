@@ -9,6 +9,7 @@ import './App.css';
 class App extends Component {
   constructor(props){ //가장 먼저 실행되어 state를 초기화한다.
     super(props);
+    this.max_content_id = 3;
     this.state = {
       mode:'read',
       selected_content_id:2,
@@ -43,7 +44,23 @@ class App extends Component {
       }
       _article = <ReadContent title={_title} desc={_desc}></ReadContent>
     } else if(this.state.mode === 'create'){
-      _article = <CreateContent></CreateContent>
+      _article = <CreateContent onSubmit={function(_title, _desc){
+        //add content to this.state.contents
+        this.max_content_id = this.max_content_id+1;
+        // * push는 오리지널 데이터를 변경하므로 좋지않다.
+        // this.state.contents.push(
+        //   {id:this.max_content_id, title:_title, desc:_desc}
+        // );
+        
+        // * concat은 오리지널 데이터를 변경하지 않은 상태에 새로운 데이터를 추가한다. 
+        var _contents = this.state.contents.concat( //새로운 데이터가 추가된 값을 새 변수에 담는다.
+          {id:this.max_content_id, title:_title, desc:_desc}
+        )
+        this.setState({
+          //contents:this.state.contents
+          contents: _contents
+        })
+      }.bind(this)}></CreateContent>
     }
     return (
       <div className="App">
