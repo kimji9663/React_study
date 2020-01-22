@@ -1,5 +1,28 @@
-$mycolor: #005dff;
+/*
+Map 함수
+ - 내장함수 : map-get, map-merge, map-keys, map-values
+ - 모든 Map 내장 함수는 기존 Map 데이터를 갱신하지 않고 새 Map 데이터를 반환한다.
+*/
+$colors: ( // $map
+    primary: #005dff, // $key 
+    accent: #fff6bb
+);
+
+body, html {
+    height: 100%;
+}
 
 body {
-    background-color: $mycolor;
+    font-family: 'Montserrat';
+    margin: 0;
+
+    #root {
+        clip-path: polygon(100% 0, 100% 81%, 43% 100%, 0 100%, 0 0);
+        background-color: map-get($colors, primary); // map-get($map, $key) - Map에서 특정 key의 value를 반환
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+    }
+    
 }
