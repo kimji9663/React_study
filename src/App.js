@@ -5,7 +5,7 @@ import Control from './components/Control';
 import ReadContent from "./components/ReadContent";
 import CreateContent from "./components/CreateContent";
 import UpdateContent from "./components/UpdateContent";
-import './App.css';
+import './css/App.css';
 
 class App extends Component {
   constructor(props){ //가장 먼저 실행되어 state를 초기화한다.
