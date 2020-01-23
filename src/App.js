@@ -91,6 +91,7 @@ class App extends Component {
     console.log('App render');
     return (
       <div className="App">
+        <div id="bg"></div>
         <Subject 
           title={this.state.subject.title} 
           sub={this.state.subject.sub}
@@ -99,6 +100,7 @@ class App extends Component {
           }.bind(this)}
         >
         </Subject>
+        
         <TOC 
           onChangePage={function(id){
             this.setState({
@@ -109,31 +111,34 @@ class App extends Component {
           data={this.state.contents}
         >
         </TOC>
-        <Control onChangeMode={function(_mode){
-          if(_mode === 'delete'){
-            if(window.confirm('really?')){
-              var _contents = Array.from(this.state.contents);
-              var i = 0;
-              while (i < this.state.contents.length) {
-                if(_contents[i].id === this.state.selected_content_id){
-                  _contents.splice(i,1);
-                  break;
+
+        <main>
+          <Control onChangeMode={function(_mode){
+            if(_mode === 'delete'){
+              if(window.confirm('really?')){
+                var _contents = Array.from(this.state.contents);
+                var i = 0;
+                while (i < this.state.contents.length) {
+                  if(_contents[i].id === this.state.selected_content_id){
+                    _contents.splice(i,1);
+                    break;
+                  }
+                  i = i + 1;
                 }
-                i = i + 1;
+                this.setState({
+                  mode:'welcome',
+                  contents:_contents
+                });
+                alert('deleted!')
               }
+            } else {
               this.setState({
-                mode:'welcome',
-                contents:_contents
-              });
-              alert('deleted!')
-            }
-          } else {
-            this.setState({
-              mode:_mode
-          })
-        }
-        }.bind(this)}></Control>
-        {this.getContent()}
+                mode:_mode
+            })
+          }
+          }.bind(this)}></Control>
+          {this.getContent()}
+        </main>
       </div>
     );
   }
