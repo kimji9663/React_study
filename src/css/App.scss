@@ -5,6 +5,11 @@ Map 함수
 */
 $colors: ( // $map
     primary: #005dff, // $key 
+
+    /* 색상함수 */
+    primary-light: lighten(#005dff, 40%), // lighten($color, $amount) : 더 밝은색을 만든다.
+    primary-dark: darken(#005dff, 45%), // darken($color, $amount) : 더 어두운색을 만든다.
+
     accent: #fff6bb
 );
 
@@ -53,6 +58,87 @@ body {
         padding: 20px;
         margin: 1em auto;
         border-radius: $borders;
+        box-shadow: 0 10px 30px rgba(0,0,0,.2);
+        width: 80%;
+
+        ul {
+            list-style-type: none;
+            margin: 0; padding: 0;
+
+            li {
+                margin-bottom: 10px;
+                
+                a {
+                    color: color(primary);
+
+                    span {
+                        position: absolute;
+                        width: 30px;
+                        height: 30px;
+                        background-color: color(primary-light);
+                        border-radius: 50%;
+                        margin-right: 10px;
+                    }
+    
+                    strong {
+                        display: inline-block;
+                        margin-left: max(40px);
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+main {
+    article#primary {
+        color: #fff;
+        padding: $padding;
+        text-align: center;
+
+        h2 {
+            font-size: 3em;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 1.4em;
+        }
+
+    }
+
+    div#buttons {
+        ul {
+            list-style-type: none;
+            margin: 0 15px; padding: 0;
+
+            li {
+                margin-bottom: 10px;
+                border-radius: $borders;
+                background-color: color(accent);
+                padding: $padding;
+
+                a, input[type="button"] {
+                    color: color(primary-dark);
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-family: 'Montserrat';
+                    font-size: 15px;
+                    font-weight: bold;
+                    display: block;
+                }
+
+                a {
+                    text-align: center;
+                }
+                
+                input[type="button"] {
+                    margin: auto;
+                }
+            }
+        }
     }
 }
 

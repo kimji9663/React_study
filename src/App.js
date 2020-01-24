@@ -113,6 +113,7 @@ class App extends Component {
         </TOC>
 
         <main>
+          {this.getContent()}
           <Control onChangeMode={function(_mode){
             if(_mode === 'delete'){
               if(window.confirm('really?')){
@@ -137,7 +138,6 @@ class App extends Component {
             })
           }
           }.bind(this)}></Control>
-          {this.getContent()}
         </main>
       </div>
     );

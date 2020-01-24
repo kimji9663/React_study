@@ -4,7 +4,7 @@ class CreateContent extends Component {
   render() {
     console.log('Content render');
     return (
-      <article>
+      <article id="primary">
         <h2>Create</h2>
         <form action="/create_process" method="post" 
         onSubmit={function(e){

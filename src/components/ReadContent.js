@@ -4,9 +4,9 @@ class ReadContent extends Component {
   render() {
     console.log('Content render');
     return (
-      <article>
+      <article id="primary">
         <h2>{this.props.title}</h2>
-        {this.props.desc}
+        <p>{this.props.desc}</p>
       </article>
     );
   }
