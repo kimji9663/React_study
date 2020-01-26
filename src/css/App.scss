@@ -10,11 +10,13 @@ $colors: ( // $map
     primary-light: lighten(#005dff, 40%), // lighten($color, $amount) : 더 밝은색을 만든다.
     primary-dark: darken(#005dff, 45%), // darken($color, $amount) : 더 어두운색을 만든다.
 
-    accent: #fff6bb
+    create: #5cb85c,
+    update: #f0ad4e,
+    delete: #d9534f
 );
 
 $padding: 15px;
-$borders: 15px;
+$borders: 10px;
 
 /* 
 함수
@@ -41,17 +43,23 @@ body {
         z-index: -1;
     }
 
-    header h1 {
+    header {
+        padding: $padding;
+    }
+
+    header h1, header p {
         margin: 0;
     }
 
     header a {
         color: #fff;
         text-decoration: none;
-        padding: $padding;
         display: block;
         text-transform: uppercase;
-    } 
+    }
+    header p {
+        color: #fff;
+    }
 
     nav {
         background: #fff;
@@ -111,13 +119,15 @@ main {
 
     div#buttons {
         ul {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1rem;
             list-style-type: none;
             margin: 0 15px; padding: 0;
 
             li {
                 margin-bottom: 10px;
                 border-radius: $borders;
-                background-color: color(accent);
                 padding: $padding;
 
                 a, input[type="button"] {
@@ -137,6 +147,16 @@ main {
                 input[type="button"] {
                     margin: auto;
                 }
+            }
+
+            li.create {
+                background-color: color(create);
+            }
+            li.update {
+                background-color: color(update);
+            }
+            li.delete {
+                background-color: color(delete);
             }
         }
     }
