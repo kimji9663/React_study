@@ -17,7 +17,7 @@ class UpdateContent extends Component {
     //console.log(this.props.data);
     console.log('Content render');
     return (
-      <article>
+      <article id="primary">
         <h2>Update</h2>
         <form action="/update_process" method="post" 
         onSubmit={function(e){

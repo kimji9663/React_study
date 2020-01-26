@@ -9,6 +9,7 @@ Map 함수
  - 연산된 특정 값을 @return을 통해 반환한다. 
 */
 body, html {
+  min-height: 530px;
   height: 100%;
 }
 
@@ -17,18 +18,42 @@ body {
   margin: 0;
 }
 
+@media (min-width: 840px) {
+  body .App {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50% auto;
+        grid-template-columns: 50% auto;
+        grid-template-areas: "primary card";
+  }
+}
+
 body #bg {
   -webkit-clip-path: polygon(100% 0, 100% 81%, 43% 100%, 0 100%, 0 0);
           clip-path: polygon(100% 0, 100% 81%, 43% 100%, 0 100%, 0 0);
   background-color: #005dff;
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   z-index: -1;
+}
+
+@media (min-width: 840px) {
+  body #bg {
+    -webkit-clip-path: polygon(0 0, 80% 0%, 56% 100%, 0% 100%);
+            clip-path: polygon(0 0, 80% 0%, 56% 100%, 0% 100%);
+  }
 }
 
 body header {
   padding: 15px;
+}
+
+@media (min-width: 840px) {
+  body header {
+    grid-area: primary;
+    text-align: left;
+  }
 }
 
 body header h1, body header p {
@@ -54,6 +79,25 @@ body nav {
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 80%;
+}
+
+@media (min-width: 840px) {
+  body nav {
+    grid-area: card;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin: 1em;
+    -ms-grid-column: 2;
+        grid-column-start: 2;
+    grid-column-end: 2;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    grid-row-end: 3;
+  }
 }
 
 body nav ul {
@@ -85,10 +129,23 @@ body nav ul li a strong {
   margin-top: 10px;
 }
 
+@media (min-width: 840px) {
+  main {
+    display: inline-block;
+    padding: 15px 60px;
+  }
+}
+
 main article#primary {
   color: #fff;
   padding: 15px;
   text-align: center;
+}
+
+@media (min-width: 840px) {
+  main article#primary {
+    text-align: left;
+  }
 }
 
 main article#primary h2 {
@@ -99,6 +156,23 @@ main article#primary h2 {
 
 main article#primary p {
   font-size: 1.4em;
+}
+
+main article#primary p * {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+main article#primary p textarea {
+  min-height: 50px;
+}
+
+main article#primary p input[type="submit"] {
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #fff6bb;
 }
 
 main div#buttons ul {
