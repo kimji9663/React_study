@@ -16,6 +16,14 @@ body, html {
 body {
   font-family: 'Montserrat';
   margin: 0;
+  min-height: 150vh;
+}
+
+body .App {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: 150vh;
 }
 
 @media (min-width: 840px) {
@@ -24,11 +32,12 @@ body {
     display: grid;
     -ms-grid-columns: 50% auto;
         grid-template-columns: 50% auto;
-        grid-template-areas: "primary card";
+    -ms-grid-rows: 8% auto;
+        grid-template-rows: 8% auto;
   }
 }
 
-body #bg {
+body .App #bg {
   -webkit-clip-path: polygon(100% 0, 100% 81%, 43% 100%, 0 100%, 0 0);
           clip-path: polygon(100% 0, 100% 81%, 43% 100%, 0 100%, 0 0);
   background-color: #005dff;
@@ -39,39 +48,88 @@ body #bg {
 }
 
 @media (min-width: 840px) {
-  body #bg {
+  body .App #bg {
     -webkit-clip-path: polygon(0 0, 80% 0%, 56% 100%, 0% 100%);
             clip-path: polygon(0 0, 80% 0%, 56% 100%, 0% 100%);
   }
 }
 
-body header {
+body .App .rellax {
+  position: absolute;
+  border-radius: 10px;
+}
+
+body .App .rellax.square {
+  top: 750px;
+  left: 80px;
+  width: 60px;
+  height: 380px;
+  background-color: #d7f2ff;
+  opacity: .3;
+}
+
+body .App .rellax.square.small {
+  top: 1000px;
+  left: 100px;
+  width: 40px;
+  height: 250px;
+  background-color: #00aeff;
+  opacity: .5;
+}
+
+body .App .rellax.ractangle {
+  top: 610px;
+  left: calc(50% + 170px);
+  width: 100px;
+  height: 100px;
+  background-color: #afe6af;
+  opacity: .7;
+}
+
+body .App .rellax.circle {
+  top: 250px;
+  left: calc(50% - 250px);
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-color: #000000;
+  opacity: .2;
+}
+
+body .App header {
+  position: relative;
   padding: 15px;
 }
 
 @media (min-width: 840px) {
-  body header {
-    grid-area: primary;
+  body .App header {
     text-align: left;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 2;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    grid-row-end: 1;
   }
 }
 
-body header h1, body header p {
+body .App header h1, body .App header p {
   margin: 0;
 }
 
-body header a {
+body .App header a {
   color: #fff;
   text-decoration: none;
   display: block;
   text-transform: uppercase;
 }
 
-body header p {
+body .App header p {
   color: #fff;
 }
 
-body nav {
+body .App nav {
+  position: relative;
   background: #fff;
   padding: 20px;
   margin: 1em auto;
@@ -82,39 +140,38 @@ body nav {
 }
 
 @media (min-width: 840px) {
-  body nav {
-    grid-area: card;
+  body .App nav {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-    margin: 1em;
+    -ms-flex-item-align: auto;
+        -ms-grid-row-align: auto;
+        align-self: auto;
+    margin: 3em 1em;
     -ms-grid-column: 2;
         grid-column-start: 2;
     grid-column-end: 2;
-    -ms-grid-row: 1;
-        grid-row-start: 1;
+    -ms-grid-row: 2;
+        grid-row-start: 2;
     grid-row-end: 3;
   }
 }
 
-body nav ul {
+body .App nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-body nav ul li {
+body .App nav ul li {
   margin-bottom: 10px;
 }
 
-body nav ul li a {
+body .App nav ul li a {
   color: #005dff;
 }
 
-body nav ul li a span {
+body .App nav ul li a span {
   position: absolute;
   width: 30px;
   height: 30px;
@@ -123,16 +180,26 @@ body nav ul li a span {
   margin-right: 10px;
 }
 
-body nav ul li a strong {
+body .App nav ul li a strong {
   display: inline-block;
   margin-left: 40px;
   margin-top: 10px;
+}
+
+main {
+  position: relative;
 }
 
 @media (min-width: 840px) {
   main {
     display: inline-block;
     padding: 15px 60px;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 1;
+    -ms-grid-row: 2;
+        grid-row-start: 2;
+    grid-row-end: 2;
   }
 }
 
@@ -151,7 +218,6 @@ main article#primary {
 main article#primary h2 {
   font-size: 3em;
   margin-top: 10px;
-  text-transform: uppercase;
 }
 
 main article#primary p {

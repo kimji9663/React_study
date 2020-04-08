@@ -5,6 +5,7 @@ import Control from './components/Control';
 import ReadContent from "./components/ReadContent";
 import CreateContent from "./components/CreateContent";
 import UpdateContent from "./components/UpdateContent";
+import Rellax from 'rellax';
 import './css/App.css';
 
 class App extends Component {
@@ -14,15 +15,23 @@ class App extends Component {
     this.state = {
       mode:'welcome',
       selected_content_id:2,
-      subject:{title:'WEB', sub:'world wide web!'},
+      subject:{title:'To do list', sub:'What should I do today?'},
       welcome:{title:'Welcome', desc:'Hello, React!!'},
-      contents:[
-        {id:1, title:'HTML', desc:'HTML is for Information'},
-        {id:2, title:'CSS', desc:'CSS is for Design'},
-        {id:3, title:'Javascript', desc:'Javascript is for Interactive'}
+      contents:[{
+          id:1, 
+          title:'Going to market.', 
+          desc: 'Buy some fruits and salt.'
+        },
+        {id:2, title:'Baking muffins.', desc:'And some cookies for my nephew.'},
+        {id:3, title:'Studying Javascript.', desc:'Join an algorithm study group.'}
       ]
     }
   }
+
+  componentDidMount() {
+    this.rellax = new Rellax('.rellax');
+  }
+
   getReadContent(){
     var i = 0;
     while(i < this.state.contents.length){
@@ -92,6 +101,10 @@ class App extends Component {
     return (
       <div className="App">
         <div id="bg"></div>
+        <div className="rellax square" style={{transform: `rotate(45deg)`}} data-rellax-speed="4"></div>
+        <div className="rellax ractangle" style={{transform: `rotate(45deg)`}} data-rellax-speed="7"></div>
+        <div className="rellax circle" style={{transform: `rotate(45deg)`}} data-rellax-speed="1"></div>
+        <div className="rellax square small" style={{transform: `rotate(45deg)`}} data-rellax-speed="12"></div>
         <Subject 
           title={this.state.subject.title} 
           sub={this.state.subject.sub}
