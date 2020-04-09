@@ -16,14 +16,21 @@ class App extends Component {
       mode:'welcome',
       selected_content_id:2,
       subject:{title:'To do list', sub:'What should I do today?'},
-      welcome:{title:'Welcome', desc:'Hello, React!!'},
+      welcome:{title:'오늘 할일은?', desc:'계획적으로 살자.'},
       contents:[{
           id:1, 
-          title:'Going to market.', 
-          desc: 'Buy some fruits and salt.'
+          title:'마트가서 장보기', 
+          desc: '* Shopping List\n\n사과 3개\n밀가루 한 봉지\n계란 한 판\n올리브유\n돼지고기 한 근'
         },
-        {id:2, title:'Baking muffins.', desc:'And some cookies for my nephew.'},
-        {id:3, title:'Studying Javascript.', desc:'Join an algorithm study group.'}
+        {
+          id:2, 
+          title:'자바스크립트 공부하기', 
+          desc:'- 알고리즘 문제 풀기\n\n- 예제 따라서 풀어보기\n\n- 유튜브 강의듣기'
+        },
+        {id:3, 
+          title:'친구랑 저녁 약속', 
+          desc:'코로나 땜에 걱정되기는 하지만\n마스크를 꼭 쓰고\n사람 적은 동네에서 만나자.'
+        }
       ]
     }
   }
