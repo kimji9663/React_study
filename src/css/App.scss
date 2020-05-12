@@ -38,156 +38,153 @@ $desktop: 840px;
 
 
 body, html {
+    margin: 0;
+    padding: 0;
     min-height: 530px;
     height: 100%;
 }
 
-body {
-    font-family: 'Montserrat';
-    margin: 0;
+.App {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
     min-height: 150vh;
 
-    .App {
-        position: relative;
+    @include desktop {
+        display: grid;
+        grid-template-columns: 50% auto;
+        grid-template-rows: 8% auto;
+    }
+
+    #bg {
+        clip-path: polygon(100% 0, 100% 81%, 43% 100%, 0 100%, 0 0);
+        background-color: color(primary); // 함수이름(값);
         width: 100%;
-        overflow: hidden;
-        min-height: 150vh;
+        height: 100%;
+        position: fixed;
+        z-index: -1;
 
         @include desktop {
-            display: grid;
-            grid-template-columns: 50% auto;
-            grid-template-rows: 8% auto;
+            clip-path: polygon(0 0, 80% 0%, 56% 100%, 0% 100%);
         }
+    }
 
-        #bg {
-            clip-path: polygon(100% 0, 100% 81%, 43% 100%, 0 100%, 0 0);
-            background-color: color(primary); // 함수이름(값);
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            z-index: -1;
+    .rellax {
+        position: absolute;
+        border-radius: 10px;
 
-            @include desktop {
-                clip-path: polygon(0 0, 80% 0%, 56% 100%, 0% 100%);
+        &.square {
+            top: 750px;
+            left: 80px;
+            width: 60px;
+            height: 380px;
+            background-color: #d7f2ff;
+            opacity: .3;
+
+            &.small {
+                top: 1000px;
+                left: 100px;
+                width: 40px;
+                height: 250px;
+                background-color: #00aeff;
+                opacity: .5;
             }
         }
 
-        .rellax {
-            position: absolute;
-            border-radius: 10px;
-
-            &.square {
-                top: 750px;
-                left: 80px;
-                width: 60px;
-                height: 380px;
-                background-color: #d7f2ff;
-                opacity: .3;
-
-                &.small {
-                    top: 1000px;
-                    left: 100px;
-                    width: 40px;
-                    height: 250px;
-                    background-color: #00aeff;
-                    opacity: .5;
-                }
-            }
-
-            &.ractangle {
-                top: 610px;
-                left: calc(50% + 170px);
-                width: 100px;
-                height: 100px;
-                background-color: #afe6af;
-                opacity: .7;
-            }
-
-            &.circle {
-                top: 250px;
-                left: calc(50% - 250px);
-                width: 500px;
-                height: 500px;
-                border-radius: 50%;
-                background-color: #000000;
-                opacity: .2;
-            }
+        &.ractangle {
+            top: 610px;
+            left: calc(50% + 170px);
+            width: 100px;
+            height: 100px;
+            background-color: #afe6af;
+            opacity: .7;
         }
 
-        header {
-            position: relative;
-            padding: $padding;
-
-            @include desktop {
-                text-align: left;
-                grid-column-start: 1;
-                grid-column-end: 2;
-                grid-row-start: 1;
-                grid-row-end: 1;
-                // margin: 4em 0 0 4em;
-            }
+        &.circle {
+            top: 250px;
+            left: calc(50% - 250px);
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background-color: #000000;
+            opacity: .2;
         }
+    }
+}
 
-        header h1, header p {
-            margin: 0;
-        }
+header {
+    position: relative;
+    padding: $padding;
 
-        header a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            text-transform: uppercase;
-        }
-        header p {
-            color: #fff;
-        }
+    @include desktop {
+        text-align: left;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        // margin: 4em 0 0 4em;
+    }
 
-        nav {
-            position: relative;
-            background: #fff;
-            padding: 20px;
-            margin: 1em auto;
-            border-radius: $borders;
-            box-shadow: 0 10px 30px rgba(0,0,0,.2);
-            width: 80%;
+    h1, p {
+        margin: 0;
+    }
 
-            @include desktop {
-                height: fit-content;
-                align-self: auto;
-                margin: 3em 1em;
-                grid-column-start: 2;
-                grid-column-end: 2;
-                grid-row-start: 2;
-                grid-row-end: 3;
-            }
+    a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        text-transform: uppercase;
+    }
 
-            ul {
-                list-style-type: none;
-                margin: 0; padding: 0;
+    p {
+        color: #fff;
+    }
+}
 
-                li {
-                    margin-bottom: 10px;
-                    
-                    a {
-                        color: color(primary);
+nav {
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    margin: 1em auto;
+    border-radius: $borders;
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    width: 80%;
 
-                        span {
-                            position: absolute;
-                            width: 30px;
-                            height: 30px;
-                            background-color: color(primary-light);
-                            border-radius: 50%;
-                            margin-right: 10px;
-                        }
+    @include desktop {
+        height: fit-content;
+        align-self: auto;
+        margin: 3em 1em;
+        grid-column-start: 2;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0; padding: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
         
-                        strong {
-                            display: inline-block;
-                            margin-left: max(40px);
-                            margin-top: 10px;
-                        }
-                    }
-                }
-            }
+    a {
+        color: color(primary);
+
+        span {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: color(primary-light);
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        strong {
+            display: inline-block;
+            margin-left: max(40px);
+            margin-top: 10px;
         }
     }
 }
@@ -239,49 +236,48 @@ main {
         }
 
     }
+}
 
-    div#buttons {
-        ul {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 1rem;
-            list-style-type: none;
-            margin: 0 15px; padding: 0;
+#buttons {
+    ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
+        list-style-type: none;
+        margin: 0 15px; padding: 0;
 
-            li {
-                margin-bottom: 10px;
-                border-radius: $borders;
-                padding: $padding;
+        li {
+            margin-bottom: 10px;
+            border-radius: $borders;
+            padding: $padding;
 
-                a, input[type="button"] {
-                    color: color(primary-dark);
-                    text-decoration: none;
-                    text-transform: uppercase;
-                    font-family: 'Montserrat';
-                    font-size: 15px;
-                    font-weight: bold;
-                    display: block;
-                }
-
-                a {
-                    text-align: center;
-                }
-                
-                input[type="button"] {
-                    margin: auto;
-                }
+            a, input[type="button"] {
+                color: color(primary-dark);
+                text-decoration: none;
+                text-transform: uppercase;
+                font-family: 'Montserrat';
+                font-size: 15px;
+                font-weight: bold;
+                display: block;
             }
 
-            li.create {
+            a {
+                text-align: center;
+            }
+            
+            input[type="button"] {
+                margin: auto;
+            }
+
+            &.create {
                 background-color: color(create);
             }
-            li.update {
+            &.update {
                 background-color: color(update);
             }
-            li.delete {
+            &.delete {
                 background-color: color(delete);
             }
         }
     }
 }
-

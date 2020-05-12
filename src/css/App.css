@@ -9,17 +9,13 @@ Map 함수
  - 연산된 특정 값을 @return을 통해 반환한다. 
 */
 body, html {
+  margin: 0;
+  padding: 0;
   min-height: 530px;
   height: 100%;
 }
 
-body {
-  font-family: 'Montserrat';
-  margin: 0;
-  min-height: 150vh;
-}
-
-body .App {
+.App {
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -27,7 +23,7 @@ body .App {
 }
 
 @media (min-width: 840px) {
-  body .App {
+  .App {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 50% auto;
@@ -37,7 +33,7 @@ body .App {
   }
 }
 
-body .App #bg {
+.App #bg {
   -webkit-clip-path: polygon(100% 0, 100% 81%, 43% 100%, 0 100%, 0 0);
           clip-path: polygon(100% 0, 100% 81%, 43% 100%, 0 100%, 0 0);
   background-color: #005dff;
@@ -48,18 +44,18 @@ body .App #bg {
 }
 
 @media (min-width: 840px) {
-  body .App #bg {
+  .App #bg {
     -webkit-clip-path: polygon(0 0, 80% 0%, 56% 100%, 0% 100%);
             clip-path: polygon(0 0, 80% 0%, 56% 100%, 0% 100%);
   }
 }
 
-body .App .rellax {
+.App .rellax {
   position: absolute;
   border-radius: 10px;
 }
 
-body .App .rellax.square {
+.App .rellax.square {
   top: 750px;
   left: 80px;
   width: 60px;
@@ -68,7 +64,7 @@ body .App .rellax.square {
   opacity: .3;
 }
 
-body .App .rellax.square.small {
+.App .rellax.square.small {
   top: 1000px;
   left: 100px;
   width: 40px;
@@ -77,7 +73,7 @@ body .App .rellax.square.small {
   opacity: .5;
 }
 
-body .App .rellax.ractangle {
+.App .rellax.ractangle {
   top: 610px;
   left: calc(50% + 170px);
   width: 100px;
@@ -86,7 +82,7 @@ body .App .rellax.ractangle {
   opacity: .7;
 }
 
-body .App .rellax.circle {
+.App .rellax.circle {
   top: 250px;
   left: calc(50% - 250px);
   width: 500px;
@@ -96,13 +92,13 @@ body .App .rellax.circle {
   opacity: .2;
 }
 
-body .App header {
+header {
   position: relative;
   padding: 15px;
 }
 
 @media (min-width: 840px) {
-  body .App header {
+  header {
     text-align: left;
     -ms-grid-column: 1;
         grid-column-start: 1;
@@ -113,22 +109,22 @@ body .App header {
   }
 }
 
-body .App header h1, body .App header p {
+header h1, header p {
   margin: 0;
 }
 
-body .App header a {
+header a {
   color: #fff;
   text-decoration: none;
   display: block;
   text-transform: uppercase;
 }
 
-body .App header p {
+header p {
   color: #fff;
 }
 
-body .App nav {
+nav {
   position: relative;
   background: #fff;
   padding: 20px;
@@ -140,7 +136,7 @@ body .App nav {
 }
 
 @media (min-width: 840px) {
-  body .App nav {
+  nav {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
@@ -157,21 +153,21 @@ body .App nav {
   }
 }
 
-body .App nav ul {
+nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-body .App nav ul li {
+nav li {
   margin-bottom: 10px;
 }
 
-body .App nav ul li a {
+nav a {
   color: #005dff;
 }
 
-body .App nav ul li a span {
+nav a span {
   position: absolute;
   width: 30px;
   height: 30px;
@@ -180,7 +176,7 @@ body .App nav ul li a span {
   margin-right: 10px;
 }
 
-body .App nav ul li a strong {
+nav a strong {
   display: inline-block;
   margin-left: 40px;
   margin-top: 10px;
@@ -241,7 +237,7 @@ main article#primary p input[type="submit"] {
   background-color: #fff6bb;
 }
 
-main div#buttons ul {
+#buttons ul {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
@@ -252,13 +248,13 @@ main div#buttons ul {
   padding: 0;
 }
 
-main div#buttons ul li {
+#buttons ul li {
   margin-bottom: 10px;
   border-radius: 10px;
   padding: 15px;
 }
 
-main div#buttons ul li a, main div#buttons ul li input[type="button"] {
+#buttons ul li a, #buttons ul li input[type="button"] {
   color: #00091a;
   text-decoration: none;
   text-transform: uppercase;
@@ -268,23 +264,23 @@ main div#buttons ul li a, main div#buttons ul li input[type="button"] {
   display: block;
 }
 
-main div#buttons ul li a {
+#buttons ul li a {
   text-align: center;
 }
 
-main div#buttons ul li input[type="button"] {
+#buttons ul li input[type="button"] {
   margin: auto;
 }
 
-main div#buttons ul li.create {
+#buttons ul li.create {
   background-color: #5cb85c;
 }
 
-main div#buttons ul li.update {
+#buttons ul li.update {
   background-color: #f0ad4e;
 }
 
-main div#buttons ul li.delete {
+#buttons ul li.delete {
   background-color: #d9534f;
 }
 /*# sourceMappingURL=App.css.map */
