@@ -158,6 +158,23 @@ class App extends Component {
             })
           }
           }.bind(this)}></Control>
+
+
+          <div className="flexbox__container">
+            <div className="box"></div>
+            <div className="box"></div>
+            <div className="box"></div>
+            <div className="box"></div>
+            <div className="box"></div>
+          </div>
+
+          <div className="gridbox__container">
+            <div className="box"></div>
+            <div className="box"></div>
+            <div className="box"></div>
+            <div className="box"></div>
+            <div className="box"></div>
+          </div>
         </main>
       </div>
     );

@@ -283,4 +283,43 @@ main article#primary p input[type="submit"] {
 #buttons ul li.delete {
   background-color: #d9534f;
 }
+
+main {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.flexbox__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.flexbox__container .box {
+  width: 150px;
+  height: 100px;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  background-color: burlywood;
+}
+
+.gridbox__container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 55% 40%;
+      grid-template-columns: 55% 40%;
+  -ms-grid-rows: 140px 200px 350px;
+      grid-template-rows: 140px 200px 350px;
+  grid-column-gap: 5%;
+  grid-row-gap: 10%;
+}
+
+.gridbox__container .box {
+  background-color: blueviolet;
+}
 /*# sourceMappingURL=App.css.map */

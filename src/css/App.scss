@@ -281,3 +281,32 @@ main {
         }
     }
 }
+
+main {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.flexbox__container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ];
+
+    .box {
+        width: 150px;
+        height: 100px;
+        order: 2;
+        background-color: burlywood;
+    }
+}
+.gridbox__container {
+    display: grid;
+    grid-template-columns: 55% 40%;
+    grid-template-rows: 140px 200px 350px;
+    grid-column-gap: 5%;
+    grid-row-gap: 10%;
+
+    .box {
+        background-color: blueviolet;
+    }
+}
